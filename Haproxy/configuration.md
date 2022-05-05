@@ -29,6 +29,14 @@ backend
 
 - Sau đó các thiết lập tại mục `defaults` sẽ được áp dụng cho tất cả mục `frontend, backend` nằm phía sau (các bạn hoàn toàn có thể định nghĩa lại các giá tri mặc định tại frontend và backend).
 
+-  Có thể có nhiều mục `frontend, backend` được định nghĩa trong file cấu hình. 
+
+
+-  Mục `frontend` được định nghĩa để điều hướng các request nhận được tới các `backend`. 
+
+
+-  Mục `backend` sử dụng để định nghĩa các danh sách máy chủ dịch vụ (có Web server, Database, …) đây là nơi request được xử lý.
+
 ## Cấu hình logging Haproxy
 
 ```
@@ -72,13 +80,4 @@ systemctl status ryslog
 ![image](https://user-images.githubusercontent.com/83824403/166905388-4426cd4b-2ba3-4ddf-8345-db0c44250f98.png)
 
 
-
-## File cấu hình
--  Có thể có nhiều mục `frontend, backend` được định nghĩa trong file cấu hình. 
-
-
--  Mục `frontend` được định nghĩa để điều hướng các request nhận được tới các `backend`. 
-
-
--  Mục `backend` sử dụng để định nghĩa các danh sách máy chủ dịch vụ (có Web server, Database, …) đây là nơi request được xử lý.
 
