@@ -63,7 +63,7 @@ $UDPServerRun 514
 
 ![image](https://user-images.githubusercontent.com/83824403/166904755-109b2416-b714-47ae-b558-32d73c139557.png)
 
- Chỉnh quyền cho file log
+ - Chỉnh quyền cho file log
  
 ```
  chmod 755 /var/log/haproxy.log
