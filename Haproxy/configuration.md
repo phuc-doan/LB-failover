@@ -33,8 +33,7 @@ backend
 
 ```
  yum -y install rsyslog
- vi /etc/rsyslog.conf
- ```
+```
  
  
  ```
@@ -47,9 +46,34 @@ backend
 if ($programname == 'haproxy') then -/var/log/haproxy.log
 
 ```
+- Sửa file /etc/rsyslog.conf
+```
+
+# Collect log with UDP
+$ModLoad imudp
+$UDPServerAddress 127.0.0.1
+$UDPServerRun 514
+```
+
+
+![image](https://user-images.githubusercontent.com/83824403/166904755-109b2416-b714-47ae-b558-32d73c139557.png)
+
+ Chỉnh quyền cho file log
+ 
+```
+ chmod 755 /var/log/haproxy.log
+ systemctl restart rsyslog
+systemctl status ryslog
+
+```
+=> Đã get được log vào file haproxy.log
+
+
+![image](https://user-images.githubusercontent.com/83824403/166905388-4426cd4b-2ba3-4ddf-8345-db0c44250f98.png)
 
 
 
+## File cấu hình
 -  Có thể có nhiều mục `frontend, backend` được định nghĩa trong file cấu hình. 
 
 
