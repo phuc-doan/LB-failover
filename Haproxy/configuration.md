@@ -37,6 +37,8 @@ backend
 
 -  Mục `backend` sử dụng để định nghĩa các danh sách máy chủ dịch vụ (có Web server, Database, …) đây là nơi request được xử lý.
 
+
+
 ## Cấu hình logging Haproxy
 
 ```
@@ -51,7 +53,11 @@ backend
 if ($programname == 'haproxy') then -/var/log/haproxy.log
 
 ```
+
+
 - Sửa file /etc/rsyslog.conf
+
+
 ```
 
 # Collect log with UDP
@@ -63,7 +69,11 @@ $UDPServerRun 514
 
 ![image](https://user-images.githubusercontent.com/83824403/166904755-109b2416-b714-47ae-b558-32d73c139557.png)
 
- - Chỉnh quyền cho file log
+
+
+- Chỉnh quyền cho file log
+ 
+ 
  
 ```
  chmod 755 /var/log/haproxy.log
