@@ -2,7 +2,7 @@
 ## 2. Reverse Proxy 
 
 
-# M
+# Mô hình tổng quan 
 ![image](https://user-images.githubusercontent.com/83824403/166862953-175eeb42-2839-435d-9100-c867caa239d7.png)
 
 
