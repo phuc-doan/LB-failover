@@ -41,10 +41,7 @@ backend
 
 ```
  yum -y install rsyslog
-```
- 
- 
- ```
+
  vi /etc/rsyslog.d/haproxy.conf
 
 ```
@@ -59,7 +56,7 @@ if ($programname == 'haproxy') then -/var/log/haproxy.log
 
 # Collect log with UDP
 $ModLoad imudp
-$UDPServerAddress 127.0.0.1
+$UDPServerAddress 192.168.187.139
 $UDPServerRun 514
 ```
 
@@ -74,6 +71,21 @@ $UDPServerRun 514
 systemctl status ryslog
 
 ```
+
+- chỉnh file config haproxy
+
+
+```
+global
+    log         192.168.187.139:514 local0 info
+
+```
+
+
+![image](https://user-images.githubusercontent.com/83824403/166906094-b9ac0188-be49-4cf1-9bfa-2e63e7bbb3d3.png)
+
+
+
 => Đã get được log vào file haproxy.log
 
 
