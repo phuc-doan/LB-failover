@@ -29,6 +29,26 @@ backend
 
 - Sau đó các thiết lập tại mục `defaults` sẽ được áp dụng cho tất cả mục `frontend, backend` nằm phía sau (các bạn hoàn toàn có thể định nghĩa lại các giá tri mặc định tại frontend và backend).
 
+## Cấu hình logging Haproxy
+
+```
+ yum -y install rsyslog
+ vi /etc/rsyslog.conf
+ ```
+ 
+ 
+ ```
+ vi /etc/rsyslog.d/haproxy.conf
+
+```
+- Dán nội dung sau vào file **/etc/rsyslog.d/haproxy.conf**
+
+```
+if ($programname == 'haproxy') then -/var/log/haproxy.log
+
+```
+
+
 
 -  Có thể có nhiều mục `frontend, backend` được định nghĩa trong file cấu hình. 
 
