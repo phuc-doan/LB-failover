@@ -159,6 +159,14 @@ systemctl enable keepalived
 systemctl status keepalived
 ```
 
+
+- Để float IP có thể share cho HAProxy khác, trenable config lên
+
+```
+vim /etc/sysctl.conf
+net.ipv4.ip_nonlocal_bind=1
+```
+
 - Cấu hình keepalive trên cả 2 node HA1, HA2
 
 
