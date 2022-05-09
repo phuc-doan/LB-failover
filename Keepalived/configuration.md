@@ -203,7 +203,7 @@ systemctl restart keepalived
 
 ### - Test
 
-=> Case 1: request liên tục vào VIP của Keepalive 
+**=> Case 1**: request liên tục vào VIP của Keepalive 
 
 ```
 curl 192.168.187.200
@@ -217,7 +217,7 @@ curl 192.168.187.200
 
 #### vì conf của haproxy đang đặt là roundrobin nên nó cứ call tuần tự web 1 rồi web 2 và tiếp tục
 
-=> Case 2:  Down 1 con Haproxy đi ( ở đây mình down node HA1)
+**=> Case 2**:  Down 1 con Haproxy đi ( ở đây mình down node HA1)
 
 - Vẫn request liên tục vào **192.168.187.200** có thể dùng **chrome** hay **cli** cũng được
 
