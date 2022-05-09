@@ -102,4 +102,67 @@ global
 ![image](https://user-images.githubusercontent.com/83824403/166905388-4426cd4b-2ba3-4ddf-8345-db0c44250f98.png)
 
 
+## Cấu hình haproxy 2 webserver
+
+- Cài đặt Haproxy Trên cả 2 node HA1 và HA2
+
+```
+yum -y install haproxy
+systemctl restart haproxy
+systemctl enable haproxy
+systemctl status haproxy
+```
+
+
+
+- Cấu hình Haproxy trên cả 2 node HA1, HA2
+
+
+
+```
+global
+        log 127.0.0.1 local0 notice
+        user haproxy
+        group haproxy
+        maxconn 256
+        daemon
+        stats socket /var/lib/haproxy/stats
+
+    defaults
+        log global
+        retries 2
+        timeout connect 5000ms
+        timeout client  50000ms
+        timeout server  50000ms
+
+listen stats
+    bind :8080
+    mode http
+    stats enable
+    stats uri /stats
+    stats realm HAProxy\ Statistics
+
+    listen HA1
+        bind :80
+        mode http
+
+        balance roundrobin
+            server APP1 192.168.187.149:80 check
+            server APP2 192.168.187.150:80 check
+```
+
+
+- Restart lại cho ăn cấu hình 
+
+
+```
+systemctl restart haproxy
+```
+
+### - Test: request liên tục vào HA1 thì nó ra như này, và nếu là HA2 thì nó cũng tương tự là tạm thành công
+
+
+
+![image](https://user-images.githubusercontent.com/83824403/167340427-249fa642-d70f-4c41-85a0-ac9e148f90b1.png)
+
 
