@@ -9,9 +9,14 @@
 ## List
 
 - 192.168.187.147: HA1 + Keepalived
+
 - 192.168.187.148: HA2 + Keepalived
+
 - 192.168.187.149: APP1 (nginx)
+
 - 192.168.187.150: APP2 (nginx)
+
+- 192.168.187.200: VIP
 
 
 ## Let's get started!
@@ -66,7 +71,7 @@ vi /etc/hosts
 hostnamectl set-hostname HA1
 ```
 
-- Test việc cài cắm nginx:
+### - Test việc cài cắm nginx:
 
 ```
 curl APP1  # trên node APP1
@@ -134,7 +139,7 @@ listen stats
 systemctl restart haproxy
 ```
 
-- Test: request liên tục vào HA1 thì nó ra như này, và nếu là HA2 thì nó cũng tương tự là tạm thành công
+### - Test: request liên tục vào HA1 thì nó ra như này, và nếu là HA2 thì nó cũng tương tự là tạm thành công
 
 
 
@@ -188,7 +193,7 @@ systemctl restart keepalived
 ```
 
 
-- Test
+### - Test
 
 => Case 1: request liên tục vào VIP của Keepalive 
 
@@ -230,7 +235,7 @@ curl 192.168.187.200
  
  ![image](https://user-images.githubusercontent.com/83824403/167341651-dcb926f0-c4ea-47c5-b67f-744ea8b1ff2d.png)
  
- 
+ - 
  
  ![image](https://user-images.githubusercontent.com/83824403/167341676-75688069-7b3f-4d86-8539-4f5ee1bea23f.png)
 
