@@ -160,7 +160,7 @@ systemctl status keepalived
 ```
 
 
-- Để float IP có thể share cho HAProxy khác, tr enable config lên
+- Để float IP có thể share cho HAProxy khác, trên 2 node HA1 & HA2 enable config lên
 
 ```
 vim /etc/sysctl.conf
