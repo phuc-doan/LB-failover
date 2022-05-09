@@ -215,7 +215,7 @@ curl 192.168.187.200
 ![image](https://user-images.githubusercontent.com/83824403/167340989-b20b5072-0f22-4908-bde3-2b643ad810c1.png)
 
 
-### vì conf của haproxy đang đặt là roundrobin nên nó cứ call tuần tự web 1 rồi web 2 và tiếp tục
+#### vì conf của haproxy đang đặt là roundrobin nên nó cứ call tuần tự web 1 rồi web 2 và tiếp tục
 
 => Case 2:  Down 1 con Haproxy đi ( ở đây mình down node HA1)
 
