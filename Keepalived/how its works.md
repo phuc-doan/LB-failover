@@ -11,13 +11,13 @@
 
 
   
-- Keepalived cung cấp các bộ thư viện (framework) cho 2 chức năng chính là: cân bằng tải (load balancing) cùng cơ chế health checking và độ sẵn sàng cao cho hệ thống (high availability) với VRRP.
+- Keepalived cung cấp các bộ thư viện (framework) cho 2 chức năng chính là: LB và failover với VRRP
 
-- Tính năng cân bằng tải sử dụng Linux Virtual Server (IPVS) module kernel trên Linux.
+- Tính năng LB sử dụng Linux Virtual Server (IPVS) module kernel trên Linux.
 
-- Tính năng kiểm tra tình trạng sức khoẻ của các máy chủ backend cũng khá linh động giúp duy trì được pool server dịch vụ nào còn sống để cân bằng tải tốt.
+- Tính năng heath checking của các server backend linh động giúp duy trì được pool server dịch vụ nào còn sống để cân bằng tải tốt.
 
-- Tính sẵn sàng cao (HA) sẽ được Keepalived sử dụng kĩ thuật giao thức khá nổi tiếng VRRP (Virtual Redundancy Routing Protocol). VRRP được ứng dụng nhiều trong mô hình router failover, bạn có thể coi thêm tài liệu VRRP của Cisco.
+- Tính sẵn sàng cao (HA). Keepalived sử dụng VRRP (Virtual Redundancy Routing Protocol). VRRP được ứng dụng nhiều trong mô hình router failover (cisco vrrp)
 
 ## 2. Keepalived Failover IP hoạt động như thế nào ?
 
@@ -28,7 +28,7 @@
 
 - Các máy chủ dịch vụ sử dụng chung VIP phải liên lạc với nhau bằng địa chỉ multicast 224.0.0.18 bằng giao thức VRRP. 
 
-- Các máy chủ sẽ có độ ưu tiên (priority) trong khoảng từ 1 – 254, và máy chủ nào có độ ưu tiên cao nhất sẽ thành Master, các máy chủ còn lại sẽ thành các Slave/Backup, hoạt động ở chế độ chờ.
+- Các máy chủ sẽ có độ (priority) trong khoảng từ 1 – 254, và máy chủ nào có độ ưu tiên cao nhất sẽ thành Master, các máy chủ còn lại sẽ thành các Slave/Backup, hoạt động ở chế độ chờ.
 
 
 => Nếu vì một sự cố gì đó mà các server BACKUP không nhận được các gói tin quảng bá từ MASTER trong một khoảng thời gian nhất định thì cả nhóm sẽ bầu ra một MASTER mới.
